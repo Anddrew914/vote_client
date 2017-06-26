@@ -5,8 +5,10 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import Voting from './components/Voting';
+import Results from './components/Results';
 
 const routes = <Route componenet={App}>
+  <Route path="/results" component={Results} />
   <Route path="/" component={Voting} />
 </Route>;
 

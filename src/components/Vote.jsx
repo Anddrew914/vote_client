@@ -14,6 +14,7 @@ export default React.createClass({
   },
   render: function() {
     return <div className="voting">
+    Vote
       {this.getPair().map(entry =>
         <button key={entry}
                 disabled={this.isDisabled()}
