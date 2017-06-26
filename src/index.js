@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 import reducer from './reducer';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -27,7 +28,9 @@ const routes = <Route componenet={App}>
 </Route>;
 
 ReactDOM.render(
-  <Router history={hashHistory}>{routes}</Router>,
+  <Provider store={store}>
+    <Router history={hashHistory}>{routes}</Router>
+  </Provider>,
   document.getElementById('app')
 );
 registerServiceWorker();
