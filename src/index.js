@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
+import io from 'socket.io-client';
 import reducer from './reducer';
 import App from './App';
 import {VotingContainer} from './components/Voting';
@@ -21,6 +22,11 @@ store.dispatch({
     }
   }
 });
+
+const socket = io(`http//localhost:8090`);
+socket.on('state', state =>
+  store.dispatch({type: 'SET_STATE', state})
+);
 
 const routes = <Route componenet={App}>
   <Route path="/results" component={ResultsContainer} />
